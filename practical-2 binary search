@@ -1,0 +1,56 @@
+import time
+
+# Input number of elements
+n = int(input("Enter the number of elements: "))
+
+# Input elements
+arr = []
+for i in range(n):
+    num = int(input(f"Enter element {i + 1}: "))
+    arr.append(num)
+
+# Binary Search requires a sorted array
+arr.sort()
+
+print("\nSorted List:", arr)
+
+# Input value to search
+target = int(input("Enter the element to search: "))
+
+# Start execution time
+start_time = time.perf_counter()
+
+# Binary Search
+low = 0
+high = n - 1
+found = False
+position = -1
+
+while low <= high:
+    mid = (low + high) // 2
+
+    if arr[mid] == target:
+        found = True
+        position = mid
+        break
+    elif arr[mid] < target:
+        low = mid + 1
+    else:
+        high = mid - 1
+
+# End execution time
+end_time = time.perf_counter()
+
+# Display result
+if found:
+    print(f"\nElement {target} found at position {position + 1}.")
+else:
+    print(f"\nElement {target} not found.")
+
+# Execution time
+execution_time = end_time - start_time
+print(f"Execution Time: {execution_time:.10f} seconds")
+
+# Time complexity
+print("Time Complexity: O(log n)")
+print("Space Complexity: O(1)")
