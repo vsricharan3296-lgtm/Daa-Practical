@@ -1,0 +1,49 @@
+import time
+
+# Input number of elements
+n = int(input("Enter the number of elements: "))
+
+# Input elements
+arr = []
+
+for i in range(n):
+    element = int(input(f"Enter element {i + 1}: "))
+    arr.append(element)
+
+# Display original list
+print("\nOriginal List:", arr)
+
+# Input element to search
+key = int(input("Enter the element to search: "))
+
+# Start execution time
+start_time = time.perf_counter()
+
+# Linear Search
+found = False
+position = -1
+
+for i in range(n):
+    if arr[i] == key:
+        found = True
+        position = i
+        break
+
+# End execution time
+end_time = time.perf_counter()
+
+# Calculate execution time
+execution_time = end_time - start_time
+
+# Display result
+if found:
+    print(f"\nElement {key} found at position {position + 1}.")
+else:
+    print(f"\nElement {key} not found.")
+
+# Display execution time
+print(f"Execution Time: {execution_time:.10f} seconds")
+
+# Display time complexity
+print("Time Complexity: O(n)")
+print("Space Complexity: O(1)")
