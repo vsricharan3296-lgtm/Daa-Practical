@@ -1,0 +1,19 @@
+## Summary
+
+Linear Search and Binary Search are two commonly used searching algorithms in Python. **Linear Search** checks each element one by one until the required element is found. It is simple and can work on both sorted and unsorted lists, but its time complexity is **O(n)**.
+
+**Binary Search** is more efficient because it repeatedly divides the search area into two halves. However, the list must be **sorted** before applying Binary Search. Its time complexity is **O(log n)**, making it much faster than Linear Search for large datasets.
+
+Both programs take input from the user and calculate the **execution time** using Python's `time.perf_counter()` function.
+
+## Conclusion
+
+In conclusion, **Binary Search is more efficient than Linear Search** when working with a sorted list, especially when the number of elements is large. Linear Search is easier to implement and is useful for small or unsorted datasets, while Binary Search is preferred for large sorted datasets because it requires fewer comparisons.
+
+Therefore:
+
+* **Linear Search:** Simple, works on unsorted data, `O(n)`
+* **Binary Search:** Faster, requires sorted data, `O(log n)`
+* **Execution time:** Can be measured using `time.perf_counter()`
+
+Overall, the choice between the two algorithms depends on the **size of the data** and whether the data is **sorted or unsorted**.
