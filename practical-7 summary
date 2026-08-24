@@ -1,0 +1,7 @@
+### Summary
+
+The given Python program uses **Dynamic Programming** to calculate the Fibonacci number for a user-provided non-negative integer. It stores previously calculated Fibonacci values in a `dp` array, which avoids repeated calculations and improves efficiency. The program also measures the **execution time** using the `time.perf_counter()` function. Its **time complexity is O(n)** because it calculates each Fibonacci value once, and its **space complexity is O(n)** due to the dynamic programming array.
+
+### Conclusion
+
+This program demonstrates how Dynamic Programming can solve problems efficiently by storing and reusing previously computed results. Compared to the traditional recursive Fibonacci approach, this method avoids unnecessary repeated calculations and provides better performance. The program also allows the user to enter input and displays the execution time, making it useful for understanding both the algorithm's working and its performance.
