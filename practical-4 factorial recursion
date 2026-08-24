@@ -1,0 +1,32 @@
+import time
+
+# Recursive function to calculate factorial
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+# Taking input from the user
+n = int(input("Enter a non-negative integer: "))
+
+if n < 0:
+    print("Factorial is not defined for negative numbers.")
+else:
+    # Start measuring execution time
+    start_time = time.perf_counter()
+
+    # Calculate factorial
+    result = factorial(n)
+
+    # End measuring execution time
+    end_time = time.perf_counter()
+
+    execution_time = end_time - start_time
+
+    # Display results
+    print("\nFactorial of", n, "is:", result)
+    print("Time Complexity: O(n)")
+    print("Space Complexity: O(n)")
+    print("Execution Time:", execution_time, "seconds")
