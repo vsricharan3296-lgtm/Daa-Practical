@@ -1,0 +1,7 @@
+### Summary
+
+The above Python program calculates the factorial of a non-negative integer using a **recursive function**. The user enters a number, and the program repeatedly calls the `factorial()` function until it reaches the base case (`0` or `1`). It then calculates and displays the factorial result. The program also measures the execution time using `time.perf_counter()` and shows the time complexity as **O(n)** and space complexity as **O(n)**.
+
+### Conclusion
+
+The recursive factorial program demonstrates how recursion can be used to solve mathematical problems by breaking them into smaller subproblems. It is simple and easy to understand, especially for learning recursion. However, for very large numbers, recursion may use significant memory and can reach Python's recursion limit. Overall, the program effectively calculates factorials while also providing information about its execution time and computational complexity.
