@@ -1,0 +1,43 @@
+import time
+
+# Dynamic Programming Fibonacci function
+def fibonacci_dp(n):
+    if n <= 1:
+        return n
+
+    # Create a DP array
+    dp = [0] * (n + 1)
+    dp[0] = 0
+    dp[1] = 1
+
+    # Fill the DP table
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+
+    return dp[n]
+
+
+# User input
+n = int(input("Enter a non-negative integer: "))
+
+if n < 0:
+    print("Please enter a non-negative integer.")
+else:
+    # Start execution time
+    start_time = time.perf_counter()
+
+    # Call Dynamic Programming function
+    result = fibonacci_dp(n)
+
+    # End execution time
+    end_time = time.perf_counter()
+
+    # Calculate execution time
+    execution_time = end_time - start_time
+
+    # Display results
+    print("\n--- Dynamic Programming Result ---")
+    print(f"Fibonacci number at position {n}: {result}")
+    print("Time Complexity: O(n)")
+    print("Space Complexity: O(n)")
+    print(f"Execution Time: {execution_time:.10f} seconds")
