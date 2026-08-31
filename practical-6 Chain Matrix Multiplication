@@ -1,0 +1,115 @@
+# Chain Matrix Multiplication using Dynamic Programming
+# Includes User Input, Time Complexity and Execution Time
+
+import time
+
+# Function to find the optimal matrix multiplication order
+def matrix_chain_order(p, n):
+    # m[i][j] stores the minimum multiplication cost
+    m = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+
+    # s[i][j] stores the position where the chain is split
+    s = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+
+    # length is the chain length
+    for length in range(2, n + 1):
+
+        for i in range(1, n - length + 2):
+            j = i + length - 1
+
+            m[i][j] = float('inf')
+
+            # Try every possible split position
+            for k in range(i, j):
+
+                cost = (
+                    m[i][k]
+                    + m[k + 1][j]
+                    + p[i - 1] * p[k] * p[j]
+                )
+
+                if cost < m[i][j]:
+                    m[i][j] = cost
+                    s[i][j] = k
+
+    return m, s
+
+
+# Function to print the optimal parenthesization
+def print_optimal_parenthesis(s, i, j):
+
+    if i == j:
+        return f"M{i}"
+
+    k = s[i][j]
+
+    left = print_optimal_parenthesis(s, i, k)
+    right = print_optimal_parenthesis(s, k + 1, j)
+
+    return "(" + left + " × " + right + ")"
+
+
+# -------------------------------
+# Main Program
+# -------------------------------
+
+print("CHAIN MATRIX MULTIPLICATION")
+print("----------------------------")
+
+# User input
+n = int(input("Enter the number of matrices: "))
+
+if n <= 0:
+    print("Number of matrices must be greater than 0.")
+    exit()
+
+print("\nEnter the dimensions of the matrices.")
+print("For n matrices, enter n+1 dimensions.")
+
+p = []
+
+for i in range(n + 1):
+    value = int(input(f"Enter dimension {i + 1}: "))
+
+    if value <= 0:
+        print("Dimensions must be positive.")
+        exit()
+
+    p.append(value)
+
+
+# Display matrices
+print("\nMatrices are:")
+
+for i in range(n):
+    print(f"M{i + 1} = {p[i]} x {p[i + 1]}")
+
+
+# Start execution timer
+start_time = time.perf_counter()
+
+# Apply Dynamic Programming
+m, s = matrix_chain_order(p, n)
+
+# Stop execution timer
+end_time = time.perf_counter()
+
+execution_time = end_time - start_time
+
+
+# Display results
+print("\nRESULT")
+print("------")
+
+print("Minimum number of scalar multiplications:", m[1][n])
+
+print("Optimal Parenthesization:")
+print(print_optimal_parenthesis(s, 1, n))
+
+print("\nExecution Time: {:.9f} seconds".format(execution_time))
+
+print("\nTIME COMPLEXITY:")
+print("O(n^3)")
+
+print("SPACE COMPLEXITY:")
+print("O(n^2)")
