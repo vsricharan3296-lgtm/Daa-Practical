@@ -1,0 +1,7 @@
+### Summary
+
+The **Chain Matrix Multiplication using Dynamic Programming** program finds the most efficient way to multiply a sequence of matrices by determining the optimal placement of parentheses. The program takes the **number of matrices and their dimensions as input from the user**. It uses a dynamic programming table to calculate the minimum number of scalar multiplications required for different matrix chains. It also stores the splitting positions to determine the **optimal parenthesization**. Finally, the program displays the minimum multiplication cost, optimal multiplication order, execution time, time complexity, and space complexity.
+
+### Conclusion
+
+The Chain Matrix Multiplication algorithm demonstrates how **Dynamic Programming** can be used to solve an optimization problem efficiently. Instead of trying every possible multiplication order repeatedly, the algorithm stores previously calculated results and reuses them. This reduces unnecessary calculations and provides the optimal multiplication sequence. The algorithm has a **time complexity of O(n³)** and a **space complexity of O(n²)**. The execution time measurement also helps evaluate the practical performance of the program. Overall, this implementation shows that dynamic programming is an effective technique for minimizing the computational cost of matrix multiplication.
