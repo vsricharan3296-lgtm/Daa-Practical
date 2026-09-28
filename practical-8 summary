@@ -1,0 +1,9 @@
+### Summary
+
+The **Graph BFS (Breadth First Search)** program represents a graph using an adjacency list and searches the graph using a queue. BFS starts from a selected vertex and visits all its neighboring vertices first before moving to the next level. In the given program, the traversal starts from vertex `A` and visits the vertices level by level.
+
+The **Graph DFS (Depth First Search)** program also represents the graph using an adjacency list. DFS uses recursion to explore a vertex and continues along one path as deeply as possible before backtracking. A `visited` set is used in both programs to avoid visiting the same vertex repeatedly.
+
+### Conclusion
+
+Both **BFS and DFS** are important graph traversal techniques. BFS explores the graph level by level, while DFS explores deeply along each path before backtracking. The programs demonstrate how a graph can be represented using an adjacency list and how different searching techniques can be applied to traverse all the vertices of a graph. These methods are useful in applications such as **path finding, network traversal, connected components, and graph analysis**.
