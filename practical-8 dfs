@@ -1,0 +1,37 @@
+# Implementation of Graph and Depth First Search (DFS)
+
+# Create a graph using an adjacency list
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+# DFS function
+def dfs(graph, vertex, visited):
+    # Mark the current vertex as visited
+    visited.add(vertex)
+
+    # Print the current vertex
+    print(vertex, end=" ")
+
+    # Visit all adjacent vertices
+    for neighbour in graph[vertex]:
+        if neighbour not in visited:
+            dfs(graph, neighbour, visited)
+
+
+# Display the graph
+print("Graph:")
+for vertex in graph:
+    print(vertex, "->", graph[vertex])
+
+# Set to keep track of visited vertices
+visited = set()
+
+# Perform DFS starting from vertex A
+print("\nDFS Traversal:", end=" ")
+dfs(graph, 'A', visited)
