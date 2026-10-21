@@ -1,0 +1,7 @@
+## Summary
+
+Kruskal’s algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) of a weighted, undirected graph. It sorts all edges in ascending order of their weights and selects the smallest edges one by one, ensuring that no cycle is formed. The algorithm uses the Disjoint Set Union (DSU) technique to detect cycles efficiently. The Python implementation accepts graph details from the user, displays the edges included in the MST, calculates the total cost, and measures execution time. Its time complexity is \\(O(E\log E)\\), where \\(E\\) is the number of edges.
+
+## Conclusion
+
+Kruskal’s algorithm efficiently finds a Minimum Spanning Tree with the minimum total edge weight for a connected, weighted, undirected graph. It is easy to implement and is useful in applications such as network design, road construction, and communication systems. This implementation demonstrates the practical application of greedy algorithms in graph theory and helps us understand how to minimize connection costs while avoiding cycles.
