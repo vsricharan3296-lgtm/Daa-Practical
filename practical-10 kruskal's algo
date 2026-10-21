@@ -1,0 +1,78 @@
+
+import time
+
+# Find the parent of a vertex
+def find(parent, vertex):
+    if parent[vertex] != vertex:
+        parent[vertex] = find(parent, parent[vertex])
+    return parent[vertex]
+
+# Combine two sets
+def union(parent, rank, u, v):
+    root_u = find(parent, u)
+    root_v = find(parent, v)
+
+    if root_u == root_v:
+        return False
+
+    if rank[root_u] < rank[root_v]:
+        parent[root_u] = root_v
+    elif rank[root_u] > rank[root_v]:
+        parent[root_v] = root_u
+    else:
+        parent[root_v] = root_u
+        rank[root_u] += 1
+
+    return True
+
+# Kruskal's algorithm
+def kruskal(vertices, edges):
+    parent = list(range(vertices))
+    rank = [0] * vertices
+    mst = []
+    total_cost = 0
+
+    # Sort edges by weight
+    edges.sort(key=lambda edge: edge[2])
+
+    for u, v, weight in edges:
+        if union(parent, rank, u, v):
+            mst.append((u, v, weight))
+            total_cost += weight
+
+            if len(mst) == vertices - 1:
+                break
+
+    return mst, total_cost
+
+# Main program
+n = int(input("Enter the number of vertices: "))
+m = int(input("Enter the number of edges: "))
+
+edges = []
+
+print("Enter each edge as: source destination weight")
+print("Vertices are numbered from 0 to", n - 1)
+
+for i in range(m):
+    u, v, weight = map(
+        int, input(f"Enter edge {i + 1}: ").split()
+    )
+    edges.append((u, v, weight))
+
+start_time = time.perf_counter()
+
+mst, total_cost = kruskal(n, edges)
+
+end_time = time.perf_counter()
+
+print("\nMinimum Spanning Tree:")
+for u, v, weight in mst:
+    print(f"{u} -- {v} : {weight}")
+
+if n > 0 and len(mst) == n - 1:
+    print("Total cost of MST:", total_cost)
+else:
+    print("The graph is disconnected; a complete MST does not exist.")
+
+print(f"Execution Time: {end_time - start_time:.8f} seconds")
