@@ -1,0 +1,7 @@
+### **Summary**
+
+The Travelling Salesman Problem (TSP) was implemented using Python with the Brute Force method. The program generates all possible routes, calculates the total travelling cost for each route, and identifies the shortest possible route that visits every city exactly once and returns to the starting city. It also displays the minimum travel cost and execution time.
+
+### **Conclusion**
+
+Thus, the Travelling Salesman Problem was successfully implemented in Python. The program finds the optimal route with minimum travelling cost. The Brute Force method guarantees the best solution, but its time complexity is O(n!), making it less efficient for a large number of cities.
