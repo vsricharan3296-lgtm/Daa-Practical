@@ -1,0 +1,43 @@
+
+import itertools
+import time
+
+# Travelling Salesman Problem
+n = int(input("Enter the number of cities: "))
+
+print("Enter the cost matrix:")
+cost = []
+
+for i in range(n):
+    row = list(map(int, input().split()))
+    cost.append(row)
+
+start = time.perf_counter()
+
+min_cost = float('inf')
+best_path = None
+
+# Generate all possible routes
+cities = list(range(n))
+
+for path in itertools.permutations(cities[1:]):
+    route = (0,) + path + (0,)
+    total_cost = 0
+
+    for i in range(n):
+        total_cost += cost[route[i]][route[i + 1]]
+
+    if total_cost < min_cost:
+        min_cost = total_cost
+        best_path = route
+
+end = time.perf_counter()
+
+print("\nShortest Route:")
+print(" -> ".join(str(city + 1) for city in best_path))
+
+print("Minimum Travel Cost:", min_cost)
+print("Execution Time:", end - start, "seconds")
+
+print("\nTime Complexity: O(n!)")
+print("Space Complexity: O(n)")
