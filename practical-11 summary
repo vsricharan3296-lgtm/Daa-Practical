@@ -1,0 +1,7 @@
+### **Summary**
+
+The Floyd-Warshall algorithm is a Dynamic Programming algorithm used to find the shortest paths between all pairs of vertices in a weighted graph. It repeatedly updates the distance matrix by checking whether a shorter path exists through an intermediate vertex. Its time complexity is O(n³), and its space complexity is O(n²).
+
+### **Conclusion**
+
+The Floyd-Warshall algorithm is an effective method for finding the shortest distances between all pairs of vertices in a graph. It is simple to implement and useful in network routing and pathfinding problems. Although it requires O(n³) time, it provides accurate shortest-path results for weighted graphs without negative cycles.
